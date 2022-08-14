@@ -22,6 +22,16 @@ const Login = () => {
     // find the signInWithEmailAndPassword function
     // the documentation uses .then() promise chaining and we have been using async/await either one is valid and will work
 
+    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("user", user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+
     navigate("/");
   };
 
