@@ -21,6 +21,5 @@ export const auth = getAuth(app);
 //Initialize Firebase Firestore
 export const db = getFirestore(app);
 
-
 // export const functions = getFunctions(app);
 // connectFunctionsEmulator(functions, "localhost", 5001);
