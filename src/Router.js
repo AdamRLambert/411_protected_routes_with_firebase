@@ -12,19 +12,15 @@ import Dashboard from "./components/Dashboard";
 // Remember the user from  onAuthStateChanged returns null or an object
 // use !! to check for falsy  !!null = false   !!{} = true
 
-const ProtectedRoute = (props) => {
-  const { component: Component, ...rest } = props;
+export const ProtectedRoute = (props) => {
+  const { component: Component, user, ...rest } = props;
 
-  const checkAuth = () => !!props.user;
-
-  return checkAuth() === true ? (
-    <Component {...rest} />
-  ) : (
-    <Navigate to="/login" />
-  );
+  return !!user ? <Component {...rest} /> : <Navigate to="/" />;
 };
 
-const Router = ({ user }) => {
+const Router = (props) => {
+  const { user, carsData, setCarsData } = props;
+  console.log("data", carsData);
   return (
     <Routes>
       <Route
@@ -35,7 +31,14 @@ const Router = ({ user }) => {
       <Route path="/signup" element={<SignUp />} />
       <Route
         path="/dashboard"
-        element={<ProtectedRoute user={user} component={Dashboard} />}
+        element={
+          <ProtectedRoute
+            user={user}
+            carsData={carsData}
+            component={Dashboard}
+            setCarsData={setCarsData}
+          />
+        }
       />
       <Route
         path="/about"

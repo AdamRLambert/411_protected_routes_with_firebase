@@ -4,10 +4,11 @@ import { Container, Paper, Chip } from "@mui/material";
 import carsData from "../cars.json";
 
 // Don't forget to pass along (props) as the parameter
-const Car = () => {
+const Car = (props) => {
+  const { carsData } = props;
   const id = useParams().id;
   // Change "carsData" to "props.carsData
-  const car = carsData.find((c) => c.id === Number(id));
+  const car = carsData.find((c) => c.id === id);
 
   return (
     <Container maxWidth="sm" className="car-container">
