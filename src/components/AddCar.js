@@ -107,7 +107,7 @@ export default function AddCar(props) {
             <Grid item xs={12}>
               <TextField
                 inputProps={{ fontSize: "50px" }}
-                value={car.Name}
+                value={car.name}
                 id="name"
                 label="Name"
                 type="text"
@@ -119,7 +119,7 @@ export default function AddCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.Miles_per_Gallon}
+                value={car.miles_per_Gallon}
                 id="miles_per_gallon"
                 label="Miles Per Gallon"
                 type="number"
@@ -132,7 +132,7 @@ export default function AddCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.Cylinders}
+                value={car.cylinders}
                 id="cylinders"
                 label="Cylinders"
                 type="number"
@@ -196,7 +196,7 @@ export default function AddCar(props) {
               <TextField
                 fullWidth
                 InputLabelProps={{ shrink: true }}
-                value={car.Year}
+                value={car.year}
                 id="year"
                 label="Year"
                 type="date"

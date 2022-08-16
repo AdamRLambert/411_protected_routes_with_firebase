@@ -81,7 +81,6 @@ const Dashboard = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* Change "carsData" to "props.carsData" */}
           {carsData.map((car) => (
             <TableRow key={car.id}>
               <TableCell component="th" scope="row">
@@ -89,7 +88,7 @@ const Dashboard = (props) => {
               </TableCell>
               <TableCell>{car.make}</TableCell>
               <TableCell>{car.model}</TableCell>
-              <TableCell>{car.miles_pergGallon}</TableCell>
+              <TableCell>{car.miles_per_gallon}</TableCell>
               <TableCell>{car.cylinders}</TableCell>
               <TableCell>{car.horsepower}</TableCell>
               <TableCell>{car.colors.join(", ")}</TableCell>
