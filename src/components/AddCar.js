@@ -27,6 +27,8 @@ export default function AddCar(props) {
   const [car, setCar] = useState({
     id: "",
     name: "",
+    make: "",
+    model: "",
     miles_per_gallon: "",
     cylinders: "",
     displacement: "",
@@ -71,9 +73,10 @@ export default function AddCar(props) {
     // Also, make sure to wrap your code in a try/catch block to handle any errors
     const collectionRef = collection(db, "cars");
     try {
-      const updatedDb = await addDoc(collectionRef, { car });
-      setCarsData([...carsData, car]);
+      const updatedDb = await addDoc(collectionRef, car);
+      console.clear();
       console.log("updated", updatedDb);
+      setCarsData([...carsData, { ...car, id: updatedDb.id }]);
     } catch (error) {
       console.log("Error writing to DB", error);
     }
@@ -83,6 +86,8 @@ export default function AddCar(props) {
     setCar({
       id: "",
       name: "",
+      make: "",
+      model: "",
       miles_per_gallon: "",
       cylinders: "",
       displacement: "",
@@ -107,14 +112,25 @@ export default function AddCar(props) {
             <Grid item xs={12}>
               <TextField
                 inputProps={{ fontSize: "50px" }}
-                value={car.name}
+                value={car.make}
                 id="name"
                 label="Name"
                 type="text"
                 variant="outlined"
                 size="small"
                 fullWidth
-                onChange={(e) => setCar({ ...car, name: e.target.value })}
+                onChange={(e) => setCar({ ...car, make: e.target.value })}
+              />
+              <TextField
+                inputProps={{ fontSize: "50px" }}
+                value={car.model}
+                id="name"
+                label="Name"
+                type="text"
+                variant="outlined"
+                size="small"
+                fullWidth
+                onChange={(e) => setCar({ ...car, model: e.target.value })}
               />
             </Grid>
             <Grid item xs={6}>

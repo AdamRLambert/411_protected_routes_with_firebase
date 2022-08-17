@@ -23,6 +23,9 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+// import { isAsyncFunction } from "util/types";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "./../firebase-config";
 
 // Make sure to pass (props) as the parameter to get access to props being pass into this Component
 const Dashboard = (props) => {
@@ -31,6 +34,7 @@ const Dashboard = (props) => {
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
+    console.log("event", event.target.id);
     setAnchorEl(event.currentTarget);
   };
 
@@ -39,13 +43,21 @@ const Dashboard = (props) => {
   };
 
   // This event handling function will be responsible for deleting a document from Firestore
-  const handleDelete = (anchor) => {
+  const handleDelete = async (anchor) => {
     // The anchor is coming from the element in which we click the "MoreVert" icon
-    console.log(anchor);
+    console.log("anchor", anchor);
     // This anchor will carry with it the "id" of the current document we clicked
-    console.log(anchor.id);
+    console.log("anchorID", anchor.id);
     // Create Firestore query function here. Make sure to use async/await
     // Also, make sure to wrap your code in a try/catch block to handle any errors
+
+    try {
+      await deleteDoc(doc(db, "cars", anchor.id));
+      const newData = carsData.filter((car) => car.id !== anchor.id);
+      setCarsData(newData);
+    } catch (error) {
+      console.log("new data error");
+    }
 
     handleClose();
   };
@@ -91,7 +103,7 @@ const Dashboard = (props) => {
               <TableCell>{car.miles_per_gallon}</TableCell>
               <TableCell>{car.cylinders}</TableCell>
               <TableCell>{car.horsepower}</TableCell>
-              <TableCell>{car.colors.join(", ")}</TableCell>
+              <TableCell>{car?.colors?.join(", ")}</TableCell>
               <TableCell align="center">
                 <IconButton key={car.id} id={car.id} onClick={handleClick}>
                   <MoreVertIcon />
@@ -111,6 +123,7 @@ const Dashboard = (props) => {
           <EditCar
             setAnchorEl={setAnchorEl}
             carsData={carsData}
+            setCarsData={setCarsData}
             // If anchorEl exists or is not "null", give us the id.
             carId={anchorEl?.id}
           />

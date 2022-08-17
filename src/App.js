@@ -39,6 +39,21 @@ function App() {
     //  observer function when component is unmounted.
   }, []);
 
+  useEffect(() => {
+    const getCars = async () => {
+      console.log(" const getCars = async");
+      const documents = await getDocs(collection(db, "cars"));
+      const documentData = documents.docs.map((document) => {
+        return {
+          ...document.data(),
+          id: document.id,
+        };
+      });
+      setCarsData(documentData);
+    };
+    getCars();
+  }, []);
+
   //Class 9: Using a useEffect hook, create a function that will query Firestore and save the results to state.
 
   //class 11:  Query `userLikedCars` collection for the matching document based on the user Id (uid).

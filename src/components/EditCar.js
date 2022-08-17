@@ -1,17 +1,34 @@
 import React, { useState } from "react";
 // import {db} instance from the firebase-config file
-
+import { db } from "./../firebase-config";
 // Import necessary functions from firebase/firestore library: {collection, doc, setDoc}
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 
-import { Chip, Grid, IconButton, Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, } from "@mui/material";
+import {
+  Chip,
+  Grid,
+  IconButton,
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 
 export default function EditCar(props) {
+  const { carId, carsData, setCarsData } = props;
+
   const [open, setOpen] = useState(false);
 
-  const [car, setCar] = useState(
-    props.carsData.find((car) => car.id === Number(props.carId))
-  );
+  const [car, setCar] = useState(carsData.find((car) => car.id === carId));
+
+  // useEffect(() => {
+  //   const foundCar =  carsData.find((car) => car.id === carId)
+  //    setCar(foundCar);
+  //     setCarsData()
+  // }, [carsData,carId])
 
   const [color, setColor] = useState("");
 
@@ -42,14 +59,25 @@ export default function EditCar(props) {
 
   // This function is connected to the "Save Changes" buttons "onClick" event.
   // Make sure to make this function asynchronous
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log("This is your new car:", car);
-    console.log("This is the card ID: ", props.carId);
+    console.log("This is the card ID: ", carId);
     // Create Firestore query function here. Make sure to use async/await
     // Also, make sure to wrap your code in a try/catch block to handle any errors
+    try {
+      const docRef = doc(db, "cars", carId);
+      await updateDoc(docRef, car);
+      const foundCarIndex = carsData.findIndex((car) => carId === car.id);
+      const newCarsData = [...carsData];
+      newCarsData[foundCarIndex] = car;
+      setCarsData(newCarsData);
+    } catch (error) {
+      console.error("edit error", error);
+    }
 
     handleClose();
   };
+  console.log("carsdatatest", carsData, "carID", carId);
 
   return (
     <>
@@ -63,7 +91,7 @@ export default function EditCar(props) {
             <Grid item xs={6}>
               <TextField
                 inputProps={{ fontSize: "50px" }}
-                value={car.make}
+                value={car?.make}
                 id="make"
                 label="Make"
                 type="text"
@@ -76,7 +104,7 @@ export default function EditCar(props) {
             <Grid item xs={6}>
               <TextField
                 inputProps={{ fontSize: "50px" }}
-                value={car.make}
+                value={car?.model}
                 id="model"
                 label="Model"
                 type="text"
@@ -88,7 +116,7 @@ export default function EditCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.miles_per_gallon}
+                value={car?.miles_per_gallon}
                 id="miles_per_gallon"
                 label="Miles Per Gallon"
                 type="number"
@@ -101,7 +129,7 @@ export default function EditCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.cylinders}
+                value={car?.cylinders}
                 id="cylinders"
                 label="Cylinders"
                 type="number"
@@ -112,7 +140,7 @@ export default function EditCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.displacement}
+                value={car?.displacement}
                 id="displacement"
                 label="Displacement"
                 type="number"
@@ -125,7 +153,7 @@ export default function EditCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.horsepower}
+                value={car?.horsepower}
                 id="horsepower"
                 label="Horsepower"
                 type="number"
@@ -136,7 +164,7 @@ export default function EditCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.Weight_in_lbs}
+                value={car?.Weight_in_lbs}
                 id="weight_in_lbs"
                 label="Weight (lbs)"
                 type="number"
@@ -150,7 +178,7 @@ export default function EditCar(props) {
 
             <Grid item xs={6}>
               <TextField
-                value={car.acceleration}
+                value={car?.acceleration}
                 id="acceleration"
                 label="Acceleration"
                 type="number"
@@ -165,7 +193,7 @@ export default function EditCar(props) {
               <TextField
                 fullWidth
                 InputLabelProps={{ shrink: true }}
-                value={car.year}
+                value={car?.year}
                 id="year"
                 label="Year"
                 type="date"
@@ -176,7 +204,7 @@ export default function EditCar(props) {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                value={car.origin}
+                value={car?.origin}
                 id="origin"
                 label="Origin"
                 type="Origin"
@@ -212,7 +240,7 @@ export default function EditCar(props) {
             <Grid item xs={12}>
               <h6>Current Colors: </h6>
               <span>
-                {car.colors.map((color) => (
+                {car?.colors.map((color) => (
                   <Chip
                     clickable
                     label={color}

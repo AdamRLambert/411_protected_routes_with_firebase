@@ -130,9 +130,7 @@ Now that we can _Create_ some data, let's get into _Deleting_ some of that data.
 
 Inside our "Dashboard" component, look for the "handleDelete" function. This function takes in a parameter we called "anchor".
 
-This will be the "anchorElement" which is coming from the 3 dots `<IconButton key={car.id} id={car.id} onClick={handleClick}>`
-
-that is clicked to bring up the
+This will be the "anchorElement" which is coming from the 3 dots `<IconButton key={car.id} id={car.id} onClick={handleClick}>`that is clicked to bring up the
 `<Menu id="basic-menu" anchorEl={anchorEl}open={open} onClose={handleClose}>`, so be sure to check it out to understand it better.
 
 It works by displaying the _menu_ on a specific element, the _anchor element_, when `anchorEl={anchorEl}` is no longer null from `const [anchorEl, setAnchorEl] = useState(null);`.
