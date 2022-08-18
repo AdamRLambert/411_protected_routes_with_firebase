@@ -8,10 +8,10 @@ import {
   Typography,
 } from "@mui/material";
 
-import carsData from "../cars.json";
 import Query from "./Query";
 
 const Home = (props) => {
+  const { carsData, setCarsData } = props;
   const toggleFavorite = async (carId) => {
     const handleAdd = async (carId) => {};
 

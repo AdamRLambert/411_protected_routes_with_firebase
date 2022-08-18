@@ -15,7 +15,7 @@ import Dashboard from "./components/Dashboard";
 export const ProtectedRoute = (props) => {
   const { component: Component, user, ...rest } = props;
 
-  return !!user ? <Component {...rest} /> : <Navigate to="/" />;
+  return !!user ? <Component {...rest} /> : <Navigate to="/login" />;
 };
 
 const Router = (props) => {
@@ -25,7 +25,9 @@ const Router = (props) => {
     <Routes>
       <Route
         path="/"
-        element={<ProtectedRoute user={user} component={Home} />}
+        element={
+          <ProtectedRoute user={user} component={Home} carsData={carsData} />
+        }
       />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
@@ -46,7 +48,9 @@ const Router = (props) => {
       />
       <Route
         path="/car/:id"
-        element={<ProtectedRoute user={user} component={Car} />}
+        element={
+          <ProtectedRoute user={user} component={Car} carsData={carsData} />
+        }
       />
     </Routes>
   );
