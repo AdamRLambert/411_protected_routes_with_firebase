@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container } from "@mui/material";
 import { auth } from "../firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import SelectUserRole from "./SelectUserRole";
-import auth from "./firebaseConfig";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
 // Get our functions from the config file
-import { functions } from "./../firebase-config";
+import { functions } from "../firebase-config";
 // Firebase method to call our cloud function we setup
 import { httpsCallable } from "firebase/functions";
 
@@ -35,31 +33,6 @@ const SignUp = () => {
     console.log("result", result);
   };
 
-  const register = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        registeredEmail,
-        registeredPassword
-      );
-      // Invoke the `createRole` function.
-      // For now we will hard code the role. You will make it selectable
-      //  programmatically in the upcoming assignment
-      createRole(user, "teacher");
-    } catch (error) {
-      console.log(error.message);
-      clearForm();
-    }
-  };
-
-  const logout = async () => {
-    await signOut(auth);
-  };
-
-  const clearForm = () => {
-    document.getElementById("user-form").reset();
-  };
-
   const signUp = async (e) => {
     e.preventDefault();
     try {
@@ -68,8 +41,11 @@ const SignUp = () => {
         registerEmail,
         registerPassword
       );
-
-      //   console.log("userCredential.user:from SignUP.js", userCredential.user);
+      createRole(userCredential, userRole);
+      console.log(
+        "userCredential.user:from SignUP.js",
+        userCredential.user.uid
+      );
       navigate("/");
     } catch (error) {
       console.log(error.message);
