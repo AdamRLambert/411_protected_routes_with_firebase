@@ -13,14 +13,19 @@ import Dashboard from "./components/Dashboard";
 // use !! to check for falsy  !!null = false   !!{} = true
 
 export const ProtectedRoute = (props) => {
-  const { component: Component, user, ...rest } = props;
+  const { component: Component, ...rest } = props;
+  const checkAuth = () => !!props.user;
 
-  return !!user ? <Component {...rest} /> : <Navigate to="/login" />;
+  return checkAuth() === true ? (
+    <Component {...rest} />
+  ) : (
+    <Navigate to="/login" />
+  );
 };
 
 const Router = (props) => {
   const { user, carsData, setCarsData } = props;
-  console.log("data", carsData);
+  console.log("userfromrouter", user);
   return (
     <Routes>
       <Route

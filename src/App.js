@@ -57,7 +57,8 @@ function App() {
   //Class 9: Using a useEffect hook, create a function that will query Firestore and save the results to state.
 
   //class 11:  Query `userLikedCars` collection for the matching document based on the user Id (uid).
-  console.log("carsdata", carsData);
+  console.log("userfromapp", user);
+
   return (
     <BrowserRouter>
       <Navigation user={user} />

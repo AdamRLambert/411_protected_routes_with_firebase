@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import {useIsAuthorized} from './../hooks/customHooks'
+import { useIsAuthorized } from "../hooks/customHooks";
 // import the {db} instance from the 'firebase/config' file
 
 // import {doc, deleteDoc} functions from "firebase/firestore"
@@ -29,9 +29,11 @@ import { db } from "./../firebase-config";
 
 // Make sure to pass (props) as the parameter to get access to props being pass into this Component
 const Dashboard = (props) => {
-  const { carsData, setCarsData } = props;
+  const { carsData, setCarsData, user } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  console.log("userfromdashboard", user);
+  const isAuthorized = useIsAuthorized(user, "seller");
 
   const handleClick = (event) => {
     console.log("event", event.target.id);
@@ -61,7 +63,7 @@ const Dashboard = (props) => {
 
     handleClose();
   };
-
+  console.log("isauth", isAuthorized);
   return (
     <Container maxWidth="lg" sx={{ marginTop: "50px" }}>
       {/* <h4>Welcome, {props.user.username}</h4> */}
@@ -76,7 +78,9 @@ const Dashboard = (props) => {
         {/* <Chart carsData={carsData} /> */}
         <div align="center">
           {/* <Total carsDate={carsData} /> */}
-          <AddCar setCarsData={setCarsData} carsData={carsData} />
+          {isAuthorized && (
+            <AddCar setCarsData={setCarsData} carsData={carsData} />
+          )}
         </div>
       </Stack>
       <Table>
