@@ -35,7 +35,7 @@ const Router = (props) => {
         }
       />
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signup" element={<SignUp user={user} />} />
       <Route
         path="/dashboard"
         element={

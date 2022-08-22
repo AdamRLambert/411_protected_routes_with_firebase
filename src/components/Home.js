@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 
 import Query from "./Query";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Home = (props) => {
   const { carsData, setCarsData } = props;
@@ -37,6 +39,8 @@ const Home = (props) => {
               </ul>
             </CardContent>
             <Divider />
+            <FavoriteIcon style={{ color: "red" }} />
+            <FavoriteBorderIcon />
             <CardActions>
               <Link style={{ color: "mediumblue" }} to={`/car/${car.id}`}>
                 See More Details

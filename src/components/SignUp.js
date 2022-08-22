@@ -6,13 +6,21 @@ import SelectUserRole from "./SelectUserRole";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 // import utilityfunction from "./../utils/utilityFunctions";
 import { createRole } from "../utils/utilityFunctions";
+import { collection, doc, addDoc } from "firebase/firestore";
+import { db } from "./../firebase-config";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-
   const [userRole, setUserRole] = useState(null);
+  const userLikedCarsRef = collection(db, "userLikedCars");
+
+  const createLikedCars = async (id) =>
+    await addDoc(userLikedCarsRef, {
+      userId: id,
+      likedCarsIds: [],
+    });
 
   const signUp = async (e) => {
     e.preventDefault();
@@ -23,10 +31,7 @@ const SignUp = () => {
         registerPassword
       );
       createRole(userCredential, userRole);
-      console.log(
-        "userCredential.user:from SignUP.js",
-        userCredential.user.uid
-      );
+      createLikedCars(userCredential.user.uid);
       navigate("/");
     } catch (error) {
       console.log(error.message);
