@@ -14,13 +14,13 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Home = (props) => {
   const { carsData, setCarsData } = props;
-  const toggleFavorite = async (carId) => {
-    const handleAdd = async (carId) => {};
+  const toggleFavorite = async (carId) => {};
 
-    const handledelete = async (id) => {};
-  };
+  const handleAdd = async (carId) => {};
 
-  console.log("CARS", carsData);
+  const handledelete = async (id) => {};
+
+  console.log("hearts", carsData);
 
   return (
     <>
@@ -39,8 +39,10 @@ const Home = (props) => {
               </ul>
             </CardContent>
             <Divider />
-            <FavoriteIcon style={{ color: "red" }} />
-            <FavoriteBorderIcon />
+            <div onClick={() => toggleFavorite(car.id)}>
+              <FavoriteIcon style={{ color: "red" }} />
+              <FavoriteBorderIcon />
+            </div>
             <CardActions>
               <Link style={{ color: "mediumblue" }} to={`/car/${car.id}`}>
                 See More Details

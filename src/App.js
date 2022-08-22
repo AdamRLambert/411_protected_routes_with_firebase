@@ -11,6 +11,7 @@ import {
   writeBatch,
   doc,
   getDocs,
+  getDoc,
 } from "firebase/firestore";
 import { db } from "./firebase-config";
 
@@ -53,6 +54,17 @@ function App() {
     };
     getCars();
   }, []);
+
+  useEffect(() => {
+    const getUsersLikedCars = async () => {
+      // Write the rest of the code here
+      const userLikedCarsRef = doc(db, "userLikedCars");
+      console.log("fromapp", userLikedCarsRef);
+    };
+    if (user?.uid != null) {
+      getUsersLikedCars();
+    } //  console.log("user",user);
+  }, [user]);
 
   //Class 9: Using a useEffect hook, create a function that will query Firestore and save the results to state.
 
