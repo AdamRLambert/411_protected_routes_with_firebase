@@ -6,7 +6,7 @@ import SelectUserRole from "./SelectUserRole";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 // import utilityfunction from "./../utils/utilityFunctions";
 import { createRole } from "../utils/utilityFunctions";
-import { collection, doc, addDoc } from "firebase/firestore";
+import { collection, doc, addDoc, setDoc } from "firebase/firestore";
 import { db } from "./../firebase-config";
 
 const SignUp = () => {
@@ -14,24 +14,26 @@ const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [userRole, setUserRole] = useState(null);
+  const userLikedCarsRef = collection(db, "userLikedCars");
 
-  const createLikedCars = async (id, userLikedCarsRef) =>
-    await addDoc(userLikedCarsRef, {
-      userId: id,
+  const createLikedCars = async (user) => {
+    console.log("!!!!!", user);
+    await setDoc(doc(db, "userLikedCars", user.user.email), {
+      userId: user.user.uid,
       likedCarsIds: [],
     });
+  };
 
   const signUp = async (e) => {
     e.preventDefault();
     try {
-      const userLikedCarsRef = collection(db, "userLikedCars");
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
       createRole(userCredential, userRole);
-      createLikedCars(userCredential.user.uid, userLikedCarsRef);
+      createLikedCars(userCredential);
       navigate("/");
     } catch (error) {
       console.log(error.message);
