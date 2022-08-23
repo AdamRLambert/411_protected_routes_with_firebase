@@ -20,8 +20,8 @@ import {
 import { db } from "./../firebase-config";
 
 const Home = (props) => {
-  const { carsData, setCarsData, user } = props;
-  const [selectedId, setSelectedId] = useState("");
+  const { carsData, setCarsData, user, userLikedCars, setUserLikedCars } =
+    props;
 
   const toggleFavorite = async (carId) => {
     console.log("heartID", carId);
@@ -32,7 +32,7 @@ const Home = (props) => {
         likedCarsIds: arrayUnion(carId),
       });
       console.log("****", carId);
-      setSelectedId(carId);
+      setUserLikedCars(carId);
     } catch (error) {
       console.error("error updating liked cars", error);
     }
@@ -61,7 +61,7 @@ const Home = (props) => {
             </CardContent>
             <Divider />
             <div onClick={() => toggleFavorite(car.id)}>
-              {selectedId === car.id ? (
+              {userLikedCars === car.id ? (
                 <FavoriteIcon style={{ color: "red" }} />
               ) : (
                 <FavoriteBorderIcon />

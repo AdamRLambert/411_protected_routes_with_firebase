@@ -12,6 +12,8 @@ import {
   doc,
   getDocs,
   getDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import { db } from "./firebase-config";
 
@@ -24,6 +26,7 @@ function App() {
 
   //Class 9: Create a useState hook to store the data we Read from Firestore
   const [carsData, setCarsData] = useState([]);
+  const [userLikedCars, setUserLikedCars] = useState([]);
 
   //Class 8: Write a useEffect hook for onAuthStateChanged and set the user state.
   useEffect(() => {
@@ -55,26 +58,39 @@ function App() {
     getCars();
   }, []);
 
-  // useEffect(() => {
-  //   const getUsersLikedCars = async () => {
-  //     // Write the rest of the code here
-  //     const userLikedCarsRef = doc(db, "userLikedCars");
-  //     console.log("fromapp", userLikedCarsRef);
-  //   };
-  //   if (user?.uid != null) {
-  //     getUsersLikedCars();
-  //   } //  console.log("user",user);
-  // }, [user]);
+  useEffect(() => {
+    const getUsersLikedCars = async () => {
+      try {
+        const userLikedCarsRef = collection(db, "userLikedCars");
+        const q = query(userLikedCarsRef, where("userId", "==", user.uid));
+        const queryResults = await getDocs(q);
+        queryResults.forEach((doc) =>
+          setUserLikedCars(doc.data().likedCarsIds)
+        );
+      } catch (error) {
+        console.error("error getting Liked Cars", error);
+      }
+    };
+    if (user?.uid != null) {
+      getUsersLikedCars();
+    } //  console.log("user",user);
+  }, [user]);
 
   //Class 9: Using a useEffect hook, create a function that will query Firestore and save the results to state.
 
   //class 11:  Query `userLikedCars` collection for the matching document based on the user Id (uid).
-  console.log("userfromapp", user);
+  console.log("userfromapp", userLikedCars);
 
   return (
     <BrowserRouter>
       <Navigation user={user} />
-      <Router user={user} carsData={carsData} setCarsData={setCarsData} />
+      <Router
+        user={user}
+        carsData={carsData}
+        setCarsData={setCarsData}
+        userLikedCars={userLikedCars}
+        setUserLikedCars={setUserLikedCars}
+      />
     </BrowserRouter>
   );
 }

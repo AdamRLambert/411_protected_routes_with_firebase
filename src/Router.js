@@ -24,14 +24,21 @@ export const ProtectedRoute = (props) => {
 };
 
 const Router = (props) => {
-  const { user, carsData, setCarsData } = props;
+  const { user, carsData, setCarsData, userLikedCars, setUserLikedCars } =
+    props;
   console.log("userfromrouter", user);
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <ProtectedRoute user={user} component={Home} carsData={carsData} />
+          <ProtectedRoute
+            user={user}
+            component={Home}
+            carsData={carsData}
+            userLikedCars={userLikedCars}
+            setUserLikedCars={setUserLikedCars}
+          />
         }
       />
       <Route path="/login" element={<Login />} />
