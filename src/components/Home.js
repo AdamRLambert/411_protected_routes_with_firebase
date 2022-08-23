@@ -14,7 +14,9 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Home = (props) => {
   const { carsData, setCarsData } = props;
-  const toggleFavorite = async (carId) => {};
+  const toggleFavorite = async (carId) => {
+    console.log("heartID", carId);
+  };
 
   const handleAdd = async (carId) => {};
 
@@ -39,8 +41,11 @@ const Home = (props) => {
               </ul>
             </CardContent>
             <Divider />
-            <div onClick={() => toggleFavorite(car.id)}>
-              <FavoriteIcon style={{ color: "red" }} />
+            <div>
+              <FavoriteIcon
+                style={{ color: "red" }}
+                onClick={() => toggleFavorite(car.id)}
+              />
               <FavoriteBorderIcon />
             </div>
             <CardActions>

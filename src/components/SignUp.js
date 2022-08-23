@@ -14,9 +14,8 @@ const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [userRole, setUserRole] = useState(null);
-  const userLikedCarsRef = collection(db, "userLikedCars");
 
-  const createLikedCars = async (id) =>
+  const createLikedCars = async (id, userLikedCarsRef) =>
     await addDoc(userLikedCarsRef, {
       userId: id,
       likedCarsIds: [],
@@ -25,13 +24,14 @@ const SignUp = () => {
   const signUp = async (e) => {
     e.preventDefault();
     try {
+      const userLikedCarsRef = collection(db, "userLikedCars");
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
       createRole(userCredential, userRole);
-      createLikedCars(userCredential.user.uid);
+      createLikedCars(userCredential.user.uid, userLikedCarsRef);
       navigate("/");
     } catch (error) {
       console.log(error.message);

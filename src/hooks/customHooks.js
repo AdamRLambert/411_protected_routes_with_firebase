@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useIsAuthorized = (user, role) => {
   // Add the two necessary parameters
-  const [isUserRole, setIsUserRole] = useState(role);
+  const [isUserRole, setIsUserRole] = useState(false);
 
   // Put getUserRole function inside of a useEffect hook and call it inside there
   // then refresh the user token
