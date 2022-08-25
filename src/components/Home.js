@@ -42,7 +42,8 @@ const Home = (props) => {
 
   const handledelete = async (id) => {};
 
-  console.log("hearts", user);
+  console.log("hearts", userLikedCars);
+  console.log("^^^^", carsData);
 
   return (
     <>
