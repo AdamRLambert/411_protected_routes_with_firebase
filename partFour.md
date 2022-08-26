@@ -94,7 +94,6 @@ const Home = ({carsData}) => {
     //      setUserLikedCars("Change values here");
     //      console.log("userLikedCars",userLikedCars) // updated values
 
-
 ```
 
 13. After testing and understanding context proceed to `Context/likesContext.js` and switch the values from the examples to `likedCars` and `setLikedCars`. So we have a clean slate to work with.

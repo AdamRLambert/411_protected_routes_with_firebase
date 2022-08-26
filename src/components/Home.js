@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -16,37 +16,46 @@ import {
   doc,
   setDoc,
   updateDoc,
+  deleteDoc,
+  Query,
 } from "firebase/firestore";
 import { db } from "./../firebase-config";
+import { FakeCarsContext } from "../Context/FakeCarsProvider";
 
-const Home = (props) => {
-  const { carsData, setCarsData, user, userLikedCars, setUserLikedCars } =
-    props;
+const Home = () => {
+  const { carsData, user, userLikedCars, setUserLikedCars } =
+    useContext(FakeCarsContext);
 
-  const toggleFavorite = async (carId) => {
-    console.log("heartID", carId);
+  // useEffect(() => {}, [userLikedCars]);
 
+  const handleAdd = async (carId) => {
     try {
       const userLikedCarsDocRef = doc(db, "userLikedCars", user.email);
       await updateDoc(userLikedCarsDocRef, {
-        likedCarsIds: arrayUnion(carId),
+        likedCarsIds: [...userLikedCars, carId],
       });
-      console.log("****", carId);
-      setUserLikedCars(carId);
+      setUserLikedCars([...userLikedCars, carId]);
     } catch (error) {
       console.error("error updating liked cars", error);
     }
   };
 
-  const handleAdd = async (carId) => {};
+  const handleDelete = async (carId) => {
+    try {
+      const userLikedCarsDocRef = doc(db, "userLikedCars", user.email);
 
-  const handledelete = async (id) => {};
-
-  console.log("hearts", userLikedCars);
-  console.log("^^^^", carsData);
+      await updateDoc(userLikedCarsDocRef, {
+        likedCarsIds: userLikedCars.filter((liked) => liked !== carId),
+      });
+      setUserLikedCars(userLikedCars.filter((liked) => liked !== carId));
+    } catch (error) {
+      console.error("error updating liked cars", error);
+    }
+  };
 
   return (
     <>
+      {/* <Query /> */}
       <div className="card-container">
         {carsData.map((car, idx) => (
           <Card key={idx} className="card">
@@ -61,11 +70,14 @@ const Home = (props) => {
               </ul>
             </CardContent>
             <Divider />
-            <div onClick={() => toggleFavorite(car.id)}>
-              {userLikedCars === car.id ? (
-                <FavoriteIcon style={{ color: "red" }} />
+            <div>
+              {userLikedCars.includes(car.id) ? (
+                <FavoriteIcon
+                  onClick={() => handleDelete(car.id)}
+                  style={{ color: "red" }}
+                />
               ) : (
-                <FavoriteBorderIcon />
+                <FavoriteBorderIcon onClick={() => handleAdd(car.id)} />
               )}
             </div>
             <CardActions>

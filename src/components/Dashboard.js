@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useIsAuthorized } from "../hooks/customHooks";
 // import the {db} instance from the 'firebase/config' file
 
@@ -26,10 +26,11 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 // import { isAsyncFunction } from "util/types";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "./../firebase-config";
+import { FakeCarsContext } from "./../Context/FakeCarsProvider";
 
 // Make sure to pass (props) as the parameter to get access to props being pass into this Component
-const Dashboard = (props) => {
-  const { carsData, setCarsData, user } = props;
+const Dashboard = () => {
+  const { carsData, setCarsData, user } = useContext(FakeCarsContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   console.log("userfromdashboard", user);

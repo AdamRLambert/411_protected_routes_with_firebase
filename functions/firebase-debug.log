@@ -1,0 +1,210 @@
+[debug] [2022-08-26T03:13:13.017Z] ----------------------------------------------------------------------
+[debug] [2022-08-26T03:13:13.019Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2022-08-26T03:13:13.019Z] CLI Version:   11.7.0
+[debug] [2022-08-26T03:13:13.019Z] Platform:      darwin
+[debug] [2022-08-26T03:13:13.020Z] Node Version:  v16.15.1
+[debug] [2022-08-26T03:13:13.026Z] Time:          Thu Aug 25 2022 20:13:13 GMT-0700 (Mountain Standard Time)
+[debug] [2022-08-26T03:13:13.026Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-26T03:13:13.029Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-08-26T03:13:13.107Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-26T03:13:13.107Z] > authorizing via signed-in user (lambertar@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2022-08-26T03:13:13.139Z] [hub] writing locator at /var/folders/y_/9ndrvcpn1sdfqgk7n3rcp63m0000gn/T/hub-learn-firebase-f141a.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage, eventarc {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage, eventarc\u001b[22m"}}
+[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-08-26T03:13:13.202Z] defaultcredentials: writing to file /Users/adam/.config/firebase/lambertar_gmail_com_application_default_credentials.json
+[debug] [2022-08-26T03:13:13.220Z] Setting GAC to /Users/adam/.config/firebase/lambertar_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/adam/.config/firebase/lambertar_gmail_com_application_default_credentials.json"}}
+[debug] [2022-08-26T03:13:13.225Z] > refreshing access token with scopes: []
+[debug] [2022-08-26T03:13:13.228Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-08-26T03:13:13.228Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-26T03:13:13.379Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-08-26T03:13:13.379Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-08-26T03:13:13.440Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-08-26T03:13:13.440Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-26T03:13:13.488Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/learn-firebase-f141a/adminSdkConfig [none]
+[debug] [2022-08-26T03:13:13.800Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/learn-firebase-f141a/adminSdkConfig 200
+[debug] [2022-08-26T03:13:13.801Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/learn-firebase-f141a/adminSdkConfig {"projectId":"learn-firebase-f141a","storageBucket":"learn-firebase-f141a.appspot.com","locationId":"us-central"}
+[debug] [2022-08-26T03:13:14.116Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-08-26T03:13:14.117Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-08-26T03:13:14.117Z] Starting Emulator UI with command {"binary":"node","args":["/Users/adam/.cache/firebase/emulators/ui-v1.9.0/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/adam/.cache/firebase/emulators/ui-v1.9.0/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-08-26T03:13:14.264Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions\" for Cloud Functions..."}}
+[debug] [2022-08-26T03:13:14.400Z] Validating nodejs source
+[debug] [2022-08-26T03:13:16.056Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-08-26T03:13:16.057Z] Building nodejs source
+[debug] [2022-08-26T03:13:16.057Z] Analyzing nodejs backend spec
+[debug] [2022-08-26T03:13:16.061Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-08-26T03:13:16.862Z] Serving at port 9005
+
+[debug] [2022-08-26T03:13:16.882Z] Got response from /__/functions.yaml Failed to generate manifest from function source: SyntaxError: Cannot use import statement outside a module
+[debug] [2022-08-26T03:13:16.886Z] Failed to parse functions.yamlincomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:
+     ... rom function source: SyntaxError: Cannot use import statement ou ... 
+                                         ^ {"name":"YAMLException","reason":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line","mark":{"name":null,"buffer":"Failed to generate manifest from function source: SyntaxError: Cannot use import statement outside a module\n\u0000","position":61,"line":0,"column":61},"message":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:\n     ... rom function source: SyntaxError: Cannot use import statement ou ... \n                                         ^"}
+[debug] [2022-08-26T03:13:16.890Z] shutdown requested via /__/quitquitquit
+
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Failed to load function definition from source: Failed to generate manifest from function source: SyntaxError: Cannot use import statement outside a module {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load function definition from source: Failed to generate manifest from function source: SyntaxError: Cannot use import statement outside a module"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-08-26T03:16:22.556Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-26T03:16:22.557Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-26T03:16:22.562Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-26T03:17:31.892Z] File /Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/index.js changed, reloading triggers"}}
+[debug] [2022-08-26T03:17:32.896Z] Validating nodejs source
+[debug] [2022-08-26T03:17:35.689Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-08-26T03:17:35.691Z] Building nodejs source
+[debug] [2022-08-26T03:17:35.691Z] Analyzing nodejs backend spec
+[debug] [2022-08-26T03:17:35.692Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-08-26T03:17:36.198Z] Serving at port 9005
+
+[debug] [2022-08-26T03:17:36.374Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"addAdminRole":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"addAdminRole"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-08-26T03:17:36.392Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: helloWorld, addAdminRole. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld, addAdminRole."}}
+[info] ✔  functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/learn-firebase-f141a/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/learn-firebase-f141a/us-central1/helloWorld)."}}
+[info] ✔  functions[us-central1-addAdminRole]: http function initialized (http://localhost:5001/learn-firebase-f141a/us-central1/addAdminRole). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/learn-firebase-f141a/us-central1/addAdminRole)."}}
+[debug] [2022-08-26T03:18:24.764Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-26T03:18:24.764Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-26T03:18:24.764Z] Accepted request OPTIONS /learn-firebase-f141a/us-central1/addAdminRole --> us-central1-addAdminRole
+[debug] [2022-08-26T03:18:24.799Z] [worker-pool] addWorker(us-central1-addAdminRole) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-addAdminRole)"}}
+[debug] [2022-08-26T03:18:24.800Z] [worker-pool] Adding worker with key us-central1-addAdminRole, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-addAdminRole, total=1"}}
+[debug] [2022-08-26T03:18:24.800Z] [worker-pool] submitWork(triggerId=us-central1-addAdminRole) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-addAdminRole)"}}
+[debug] [2022-08-26T03:18:24.801Z] [worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: BUSY"}}
+[debug] [2022-08-26T03:18:26.482Z] [runtime-status] [35160] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-08-26T03:18:26.482Z] [runtime-status] [35160] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-26T03:18:26.482Z] [runtime-status] [35160] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-08-26T03:18:26.483Z] [runtime-status] [35160] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-26T03:18:26.545Z] [runtime-status] [35160] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-08-26T03:18:26.545Z] [runtime-status] [35160] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2022-08-26T03:18:26.545Z] [runtime-status] [35160] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-26T03:18:26.546Z] [runtime-status] [35160] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-08-26T03:18:26.547Z] [runtime-status] [35160] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-26T03:18:26.547Z] [runtime-status] [35160] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-08-26T03:18:26.548Z] [runtime-status] [35160] Functions runtime initialized. {"cwd":"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions","node_version":"16.15.1"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Functions runtime initialized. {\"cwd\":\"/Users/adam/DevFolder/JS411/411_protected_routes_with_firebase/functions\",\"node_version\":\"16.15.1\"}"}}
+[debug] [2022-08-26T03:18:26.551Z] [runtime-status] [35160] initializeApp(DEFAULT) {"storageBucket":"learn-firebase-f141a.appspot.com","projectId":"learn-firebase-f141a"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] initializeApp(DEFAULT) {\"storageBucket\":\"learn-firebase-f141a.appspot.com\",\"projectId\":\"learn-firebase-f141a\"}"}}
+[debug] [2022-08-26T03:18:26.552Z] [runtime-status] [35160] Beginning invocation function addAdminRole! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Beginning invocation function addAdminRole!"}}
+[info] i  functions: Beginning execution of "addAdminRole" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"Beginning execution of \"addAdminRole\""}}
+[debug] [2022-08-26T03:18:26.553Z] [runtime-status] [35160] Running addAdminRole in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Running addAdminRole in signature http"}}
+[debug] [2022-08-26T03:18:26.558Z] [runtime-status] [35160] Listening to port: /var/folders/y_/9ndrvcpn1sdfqgk7n3rcp63m0000gn/T/fire_emu_3f8afd5c89a17f7e.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Listening to port: /var/folders/y_/9ndrvcpn1sdfqgk7n3rcp63m0000gn/T/fire_emu_3f8afd5c89a17f7e.sock"}}
+[debug] [2022-08-26T03:18:26.648Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-26T03:18:26.649Z] [functions] Got req.url=/learn-firebase-f141a/us-central1/addAdminRole, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/learn-firebase-f141a/us-central1/addAdminRole, mapping to path=/"}}
+[debug] [2022-08-26T03:18:26.652Z] [runtime-status] [35160] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-08-26T03:18:26.655Z] [runtime-status] [35160] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Ephemeral server survived."}}
+[info] i  functions: Finished "addAdminRole" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"Finished \"addAdminRole\" in ~1s"}}
+[debug] [2022-08-26T03:18:26.657Z] [worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: IDLE"}}
+[debug] [2022-08-26T03:18:26.657Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-26T03:18:26.659Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-26T03:18:26.661Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-26T03:18:26.661Z] Accepted request POST /learn-firebase-f141a/us-central1/addAdminRole --> us-central1-addAdminRole
+[debug] [2022-08-26T03:18:26.662Z] ID Token: eyJhbGciOiJSUzI1NiIsImtpZCI6ImE4YmZhNzU2NDk4ZmRjNTZlNmVmODQ4YWY5NTI5ZThiZWZkZDM3NDUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbGVhcm4tZmlyZWJhc2UtZjE0MWEiLCJhdWQiOiJsZWFybi1maXJlYmFzZS1mMTQxYSIsImF1dGhfdGltZSI6MTY2MTQ4MzkwNCwidXNlcl9pZCI6ImhKZFBhWWJ3anRmckhCOWI1RXFubmw5eUtDODMiLCJzdWIiOiJoSmRQYVlid2p0ZnJIQjliNUVxbm5sOXlLQzgzIiwiaWF0IjoxNjYxNDgzOTA0LCJleHAiOjE2NjE0ODc1MDQsImVtYWlsIjoibWFrZXN1cmVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIm1ha2VzdXJlQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.OHZYLR1sBDcNUUByzFbVMwCwPo2i6V6bFYRY3dDJLOomY-QBc2V2yGmFDVIgbGEVEjcv2kc3NsESotIgrl8P09jMv0TikiNy4SsD_rMi1Y_7ZLhDdHFXtro_TJDIdBdv2jaT_d0hoCOiQLLvmRksi1IJmZiIKatGLtjmXtPry7av32NgpTRqBgbhaeQixc6_6WoFhbUnOiJ9pLkiOsjMdqzC9WHFjWaIGOs5d57QFvT0mUSfTL2hYPPSNweiq_NjBX4Wh9mLuE5hLq3PB5Qeaxy01JeuQdwtqjovGcm50ce0W5Jp_8ws3uvJ1E1EZ3eIUOZagPz_eDfLwr0x2RzNTA
+[debug] [2022-08-26T03:18:26.664Z] [worker-pool] submitWork(triggerId=us-central1-addAdminRole) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-addAdminRole)"}}
+[debug] [2022-08-26T03:18:26.665Z] [worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: BUSY"}}
+[debug] [2022-08-26T03:18:26.667Z] [runtime-status] [35160] Beginning invocation function addAdminRole! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Beginning invocation function addAdminRole!"}}
+[info] i  functions: Beginning execution of "addAdminRole" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"Beginning execution of \"addAdminRole\""}}
+[debug] [2022-08-26T03:18:26.668Z] [runtime-status] [35160] Running addAdminRole in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Running addAdminRole in signature http"}}
+[debug] [2022-08-26T03:18:26.669Z] [runtime-status] [35160] Listening to port: /var/folders/y_/9ndrvcpn1sdfqgk7n3rcp63m0000gn/T/fire_emu_3f8afd5c89a17f7e.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Listening to port: /var/folders/y_/9ndrvcpn1sdfqgk7n3rcp63m0000gn/T/fire_emu_3f8afd5c89a17f7e.sock"}}
+[debug] [2022-08-26T03:18:26.774Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-26T03:18:26.774Z] [functions] Got req.url=/learn-firebase-f141a/us-central1/addAdminRole, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/learn-firebase-f141a/us-central1/addAdminRole, mapping to path=/"}}
+[debug] [2022-08-26T03:18:26.797Z] [runtime-status] [35160] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Ephemeral server handling POST request"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2022-08-26T03:18:26.801Z] [runtime-status] [35160] Callable functions auth override {"key":"x-callable-context-auth","value":"%7B%22uid%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%2C%22token%22%3A%7B%22iss%22%3A%22https%3A%2F%2Fsecuretoken.google.com%2Flearn-firebase-f141a%22%2C%22aud%22%3A%22learn-firebase-f141a%22%2C%22auth_time%22%3A1661483904%2C%22user_id%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%2C%22sub%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%2C%22iat%22%3A1661483904%2C%22exp%22%3A1661487504%2C%22email%22%3A%22makesure%40gmail.com%22%2C%22email_verified%22%3Afalse%2C%22firebase%22%3A%7B%22identities%22%3A%7B%22email%22%3A%5B%22makesure%40gmail.com%22%5D%7D%2C%22sign_in_provider%22%3A%22password%22%7D%2C%22uid%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%7D%7D"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Callable functions auth override {\"key\":\"x-callable-context-auth\",\"value\":\"%7B%22uid%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%2C%22token%22%3A%7B%22iss%22%3A%22https%3A%2F%2Fsecuretoken.google.com%2Flearn-firebase-f141a%22%2C%22aud%22%3A%22learn-firebase-f141a%22%2C%22auth_time%22%3A1661483904%2C%22user_id%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%2C%22sub%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%2C%22iat%22%3A1661483904%2C%22exp%22%3A1661487504%2C%22email%22%3A%22makesure%40gmail.com%22%2C%22email_verified%22%3Afalse%2C%22firebase%22%3A%7B%22identities%22%3A%7B%22email%22%3A%5B%22makesure%40gmail.com%22%5D%7D%2C%22sign_in_provider%22%3A%22password%22%7D%2C%22uid%22%3A%22hJdPaYbwjtfrHB9b5Eqnnl9yKC83%22%7D%7D\"}"}}
+[warn] ⚠  functions: The Firebase Authentication emulator is not running, so calls to Firebase Authentication will affect production. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"The Firebase Authentication emulator is not running, so calls to Firebase Authentication will affect production."}}
+[info] >  userDatauserData UserRecord { {"user":"userDatauserData UserRecord {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m userDatauserData UserRecord {"}}
+[info] >    uid: 'hJdPaYbwjtfrHB9b5Eqnnl9yKC83', {"user":"  uid: 'hJdPaYbwjtfrHB9b5Eqnnl9yKC83',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   uid: 'hJdPaYbwjtfrHB9b5Eqnnl9yKC83',"}}
+[info] >    email: 'makesure@gmail.com', {"user":"  email: 'makesure@gmail.com',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   email: 'makesure@gmail.com',"}}
+[info] >    emailVerified: false, {"user":"  emailVerified: false,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   emailVerified: false,"}}
+[info] >    displayName: undefined, {"user":"  displayName: undefined,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   displayName: undefined,"}}
+[info] >    photoURL: undefined, {"user":"  photoURL: undefined,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   photoURL: undefined,"}}
+[info] >    phoneNumber: undefined, {"user":"  phoneNumber: undefined,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   phoneNumber: undefined,"}}
+[info] >    disabled: false, {"user":"  disabled: false,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   disabled: false,"}}
+[info] >    metadata: UserMetadata { {"user":"  metadata: UserMetadata {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   metadata: UserMetadata {"}}
+[info] >      creationTime: 'Fri, 26 Aug 2022 03:18:24 GMT', {"user":"    creationTime: 'Fri, 26 Aug 2022 03:18:24 GMT',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m     creationTime: 'Fri, 26 Aug 2022 03:18:24 GMT',"}}
+[info] >      lastSignInTime: 'Fri, 26 Aug 2022 03:18:24 GMT', {"user":"    lastSignInTime: 'Fri, 26 Aug 2022 03:18:24 GMT',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m     lastSignInTime: 'Fri, 26 Aug 2022 03:18:24 GMT',"}}
+[info] >      lastRefreshTime: 'Fri, 26 Aug 2022 03:18:24 GMT' {"user":"    lastRefreshTime: 'Fri, 26 Aug 2022 03:18:24 GMT'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m     lastRefreshTime: 'Fri, 26 Aug 2022 03:18:24 GMT'"}}
+[info] >    }, {"user":"  },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   },"}}
+[info] >    providerData: [ {"user":"  providerData: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   providerData: ["}}
+[info] >      UserInfo { {"user":"    UserInfo {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m     UserInfo {"}}
+[info] >        uid: 'makesure@gmail.com', {"user":"      uid: 'makesure@gmail.com',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m       uid: 'makesure@gmail.com',"}}
+[info] >        displayName: undefined, {"user":"      displayName: undefined,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m       displayName: undefined,"}}
+[info] >        email: 'makesure@gmail.com', {"user":"      email: 'makesure@gmail.com',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m       email: 'makesure@gmail.com',"}}
+[info] >        photoURL: undefined, {"user":"      photoURL: undefined,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m       photoURL: undefined,"}}
+[info] >        providerId: 'password', {"user":"      providerId: 'password',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m       providerId: 'password',"}}
+[info] >        phoneNumber: undefined {"user":"      phoneNumber: undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m       phoneNumber: undefined"}}
+[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
+[info] >    ], {"user":"  ],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   ],"}}
+[info] >    passwordHash: undefined, {"user":"  passwordHash: undefined,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   passwordHash: undefined,"}}
+[info] >    passwordSalt: undefined, {"user":"  passwordSalt: undefined,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   passwordSalt: undefined,"}}
+[info] >    customClaims: { teacher: false, student: false, buyer: true }, {"user":"  customClaims: { teacher: false, student: false, buyer: true },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   customClaims: { teacher: false, student: false, buyer: true },"}}
+[info] >    tokensValidAfterTime: 'Fri, 26 Aug 2022 03:18:24 GMT', {"user":"  tokensValidAfterTime: 'Fri, 26 Aug 2022 03:18:24 GMT',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   tokensValidAfterTime: 'Fri, 26 Aug 2022 03:18:24 GMT',"}}
+[info] >    tenantId: undefined {"user":"  tenantId: undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m   tenantId: undefined"}}
+[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
+[debug] [2022-08-26T03:18:27.936Z] [runtime-status] [35160] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"[runtime-status] [35160] Ephemeral server survived."}}
+[info] i  functions: Finished "addAdminRole" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addAdminRole"},"extension":{},"message":"Finished \"addAdminRole\" in ~1s"}}
+[debug] [2022-08-26T03:18:27.936Z] [worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-addAdminRole-ea85a4d5-f643-4a3f-9ca4-30eff8e37efb]: IDLE"}}
+[debug] [2022-08-26T03:18:27.937Z] [work-queue] {"queueLength":0,"workRunningCount":0}
